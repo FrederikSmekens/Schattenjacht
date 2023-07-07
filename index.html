@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/spel.css">
+
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <title>Schattenjacht</title>
+  <!-- <script type="text/javascript" src="js/test.js"></script> -->
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <label class="settings__gearlabel" for="settings-gear"></label>
+  <input id="settings-gear" type="checkbox" class="settings__checkbox" checked>
+
+  <div class="settings">
+    <span>Aantal muren: <input type="number" id="aantalMuren" value="50" /></span>
+    <span>Aantal schatten: <input type="number" id="aantalSchatten" value="4" /></span>
+    <span>Aantal vallen: <input type="number" id="aantalVallen" value="10" /></span>
+    <span>Aantal zombies: <input type="number" id="aantalVijanden" value="5" /></span>
+    <button id="btnNewGame">Nieuw Spel</button>
+
+    <div class="settings__description">
+      Vind alle schatten zo snel mogelijk, pas op voor de zombies!<br><br>
+      Items: <br>
+      <span class="icon__leven">: +1 leven</span>
+      <span class="icon__schat">: schat</span>
+      <span class="icon__zombie">: zombie</span>
+      <span class="icon__val">: val</span>
+      <span class="icon__snelheidsboost">: snelheidsboost</span>
+    </div>
+  </div>
+</body>
+
+</html>

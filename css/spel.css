@@ -1,0 +1,329 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button {
+  border-radius: 6px;
+  border: solid 1px black;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.settings {
+  position: absolute;
+  z-index: 9999;
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 0px;
+  border-radius: 6px;
+  height: 0;
+  overflow: hidden;
+  justify-content: space-between;
+}
+.settings__description {
+  font-weight: 400;
+  line-height: 26px;
+}
+.settings span {
+  display: flex;
+  justify-content: space-between;
+}
+.settings input, .settings button {
+  border-radius: 6px;
+  border: solid 1px black;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.settings input {
+  width: 50px;
+  margin-left: 20px;
+}
+.settings button {
+  cursor: pointer;
+  padding: 10px;
+}
+.settings__checkbox {
+  visibility: hidden;
+  position: absolute;
+}
+.settings__checkbox:checked + .settings {
+  height: auto;
+  padding: 20px;
+  background-color: rgb(94, 196, 94);
+  border: solid 3px rgb(20, 21, 41);
+}
+.settings__gearlabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  height: 27px;
+  width: 27px;
+}
+.settings__gearlabel::before {
+  display: flex;
+  content: "⚙️";
+  position: absolute;
+  left: 0;
+  width: 27px;
+  height: 27px;
+}
+
+.spelbord {
+  background-color: rgb(94, 196, 94);
+  position: relative;
+  border: solid 3px rgb(20, 21, 41);
+  order: 1;
+}
+
+.scorebord {
+  background-image: url("../img/wall.png");
+  width: 100%;
+  background-color: brown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  order: 0;
+}
+
+.score {
+  padding-left: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+.score::before {
+  content: url("../img/schatkist.png");
+  position: absolute;
+  left: 0;
+}
+
+.leven {
+  position: absolute;
+}
+.leven::before {
+  content: "♥";
+  color: red;
+  font-size: 30px;
+}
+
+.levens,
+.timer {
+  padding-left: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.levens::before,
+.timer::before {
+  content: "♥";
+  position: absolute;
+  left: 0;
+  color: red;
+  font-size: 30px;
+}
+
+.timer::before {
+  content: "⌚";
+  font-size: 20px;
+}
+
+.jager {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 100%;
+  transition: ease;
+  background-image: url("../img/player1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 99;
+}
+.jager.powerup {
+  background-color: yellow;
+}
+.jager.down {
+  background-image: url("../img/player1.png");
+}
+.jager.up {
+  background-image: url("../img/player-up.png");
+}
+.jager.left {
+  background-image: url("../img/player-right.png");
+  transform: scaleX(-100%);
+}
+.jager.right {
+  background-image: url("../img/player-right.png");
+}
+
+.vijand {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border-radius: 100%;
+  background-image: url("../img/zombie1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 99;
+  transition: background-image ease 0.1s;
+}
+.vijand.down {
+  background-image: url("../img/zombie1.png");
+}
+.vijand.up {
+  background-image: url("../img/zombie-up.png");
+}
+.vijand.left {
+  background-image: url("../img/zombie-right.png");
+  transform: scaleX(-100%);
+}
+.vijand.right {
+  background-image: url("../img/zombie-right.png");
+}
+
+.icon__leven {
+  padding-left: 30px;
+}
+.icon__leven::before {
+  position: absolute;
+  content: "♥";
+  color: red;
+  font-size: 30px;
+  margin-left: -30px;
+}
+.icon__schat {
+  padding-left: 30px;
+}
+.icon__schat::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-image: url("../img/schatkist.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: -37px;
+}
+.icon__zombie {
+  padding-left: 30px;
+}
+.icon__zombie::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-image: url("../img/zombie1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: -37px;
+}
+.icon__val {
+  padding-left: 30px;
+}
+.icon__val::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-image: url("../img/beartrap.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: -37px;
+}
+.icon__snelheidsboost {
+  padding-left: 30px;
+}
+.icon__snelheidsboost::before {
+  display: flex;
+  content: "⚡";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-left: -37px;
+}
+
+.muur {
+  position: absolute;
+  background-image: url("../img/bush.png");
+  background-size: 100%;
+}
+
+.schat {
+  position: absolute;
+  background-image: url("../img/schatkist.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: ease 0.3s;
+}
+.schat.open {
+  background-image: url("../img/schatkist-open.png");
+}
+
+.val {
+  position: absolute;
+  background-image: url("../img/beartrap.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: ease 0.3s;
+}
+.val.open {
+  background-color: transparent;
+  background-image: url("../img/beartrap-triggered.png");
+}
+
+.snelheidsboost {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.snelheidsboost::before {
+  display: flex;
+  content: "⚡";
+}
+
+.gameOver, .gameWin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  text-align: center;
+  background-color: brown;
+}
+.gameOver span, .gameWin span {
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.gameWin {
+  background-color: rgb(94, 196, 94);
+}/*# sourceMappingURL=spel.css.map */
